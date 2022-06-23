@@ -55,6 +55,11 @@ const popupGalup = new mapboxgl.Popup().setHTML(
 	`<h5 class="title text-center">Galup</h5>
     <p>Oficinas De Galup</p>`
 );
+const popupClient = new mapboxgl.Popup().setHTML(
+	`<h5 class="title text-center">Mi marca</h5>
+    <p>Marca de ubicacion</p>`
+);
+
 // Create a default Marker and add it to the map for Galup.
 const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 	.setLngLat([-68.7378062, 10.3392072])
@@ -64,15 +69,22 @@ const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 const markerClient = new mapboxgl.Marker({ color: "green", rotation: 45 });
 //boton de marca
 const textCoordendas = document.getElementById("coordendas");
+//render marker
 map.on("click", (e) => {
 	//Get coordinates
 	const coordinates = { lng: e.lngLat.lng, lat: e.lngLat.lat };
 	//Set coordinates to market
 	markerClient.setLngLat(coordinates);
+	markerClient.setPopup(popupClient);
 	//Render to map
 	markerClient.addTo(map);
+
 	textCoordendas.setAttribute("placeholder", markerClient._lngLat);
-	textCoordendas.disabled = false;
+	//Activar botones
+	const btnFlay = document.getElementById("fly");
+	btnFlay.disabled = false;
+	const btnClear = document.getElementById("clear");
+	btnClear.disabled = false;
 	console.log(textCoordendas);
 });
 //Buscar marca
@@ -83,4 +95,14 @@ document.getElementById("fly").addEventListener("click", () => {
 		zoom: 18,
 		essential: true, // this animation is considered essential with respect to prefers-reduced-motion
 	});
+
+	console.log(markerClient);
+});
+document.getElementById("clear").addEventListener("click", () => {
+	// Busqueda de marca
+	markerClient.remove(markerClient._lngLat);
+	const btnFlay = document.getElementById("fly");
+	btnFlay.disabled = true;
+	const btnClear = document.getElementById("clear");
+	btnClear.disabled = true;
 });
