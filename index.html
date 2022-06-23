@@ -15,7 +15,6 @@
     <link rel="stylesheet"
         href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
         type="text/css">
-
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -38,6 +37,18 @@
                         </div>
                     </div>
                     <div id='map' class="card-body"></div>
+                    <div id="menu_map">
+                        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+                        <!-- See a list of Mapbox-hosted public styles at -->
+                        <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+                        <label for="satellite-v9">satellite</label>
+                        <input id="light-v10" type="radio" name="rtoggle" value="light">
+                        <label for="light-v10">light</label>
+                        <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+                        <label for="dark-v10">dark</label>
+                        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+                        <label for="streets-v11">streets</label>
+                    </div>
                     <div class="card-footer text-center">
                         <div class="text-danger text-xs">
                             Si no encuentras la marca que hiciste presiona el botón para buscarla

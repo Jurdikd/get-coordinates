@@ -20,20 +20,34 @@ mapboxgl.accessToken =
 	"pk.eyJ1IjoianVyZGlrZCIsImEiOiJjbDRxaWY0ZGowMnJkM2puNzZheHZ3cTNnIn0.VpZd6mXZddH_tyYZ6Zi22g";
 const map = new mapboxgl.Map({
 	container: "map",
-	style: "mapbox://styles/mapbox/streets-v11",
+	style: "mapbox://styles/mapbox/satellite-v9",
 	center: [-68.7378062, 10.3392072],
 	zoom: 18,
 });
+
+//mapbox://styles/mapbox/streets-v11
+const layerList = document.getElementById("menu_map");
+const inputs = layerList.getElementsByTagName("input");
+
+for (const input of inputs) {
+	input.onclick = (layer) => {
+		const layerId = layer.target.id;
+		map.setStyle("mapbox://styles/mapbox/" + layerId);
+	};
+}
+
 //BUSCADOR
 const geocoder = new MapboxGeocoder({
 	accessToken: mapboxgl.accessToken,
 	marker: {
 		color: "red",
 	},
+	language: "es-VE",
 	mapboxgl: mapboxgl,
 });
 //BUSCADOR INIT
 map.addControl(geocoder);
+
 map.addControl(
 	new mapboxgl.GeolocateControl({
 		positionOptions: {
@@ -48,21 +62,26 @@ map.addControl(
 map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.FullscreenControl());
 // Create a default Popup and add it to the marketGalup for Galup.
-const popupGalup = new mapboxgl.Popup().setHTML(
-	`<h5 class="title text-center">Galup</h5>
-    <p>Oficinas De Galup</p>`
-);
-const popupClient = new mapboxgl.Popup().setHTML(
-	`<h5 class="title text-center">Mi marca</h5>
-    <p>Marca de ubicacion</p>`
-);
-
-// Create a default Marker and add it to the map for Galup.
-const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
-	.setLngLat([-68.7378062, 10.3392072])
-	.setPopup(popupGalup)
+const popupGalup = new mapboxgl.Popup({
+	closeButton: false,
+	closeOnClick: false,
+})
+	.setHTML(
+		`<h5 class="title text-center">Galup</h5>
+    <p>Oficinas de Comunicaciones Galup</p>`
+	)
+	.setLngLat([-68.73763653571724, 10.339226847138619])
 	.addTo(map);
-//Create a market cliente
+
+const popupClient = new mapboxgl.Popup({
+	closeOnClick: false,
+})
+	.setHTML(
+		`<h5 class="title text-center">Mi marca</h5>
+    <p>Marca de ubicacion</p>`
+	)
+	.addTo(map);
+//Create a market for client
 const markerClient = new mapboxgl.Marker({ color: "green", rotation: 45 });
 //boton de marca
 const textCoordendas = document.getElementById("coordendas");
