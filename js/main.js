@@ -63,16 +63,21 @@ map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.FullscreenControl());
 // Create a default Popup and add it to the marketGalup for Galup.
 const popupGalup = new mapboxgl.Popup({
-	closeButton: false,
 	closeOnClick: false,
 })
 	.setHTML(
 		`<h5 class="title text-center">Galup</h5>
     <p>Oficinas de Comunicaciones Galup</p>`
 	)
+	.setLngLat([-68.73763653571724, 10.339226847138619]);
+
+// Create a default Marker and add it to the map for Galup.
+const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 	.setLngLat([-68.73763653571724, 10.339226847138619])
+	.setPopup(popupGalup)
 	.addTo(map);
 
+popupGalup.addTo(map);
 const popupClient = new mapboxgl.Popup({
 	closeOnClick: false,
 })
