@@ -12,31 +12,31 @@
 }
 @media (max-width: 778px) {
 	#map {
-		width: 15rem !important;
+		width: 100% !important;
 		height: 15rem !important;
 	}
 	.mapboxgl-canvas {
-		width: 15rem !important;
+		width: 100% !important;
 		height: 15rem !important;
 	}
 }
 @media screen and (max-width: 400px) {
 	#map {
-		width: 6.25rem;
+		width: 100% !important;
 		height: 6.25rem;
 	}
 	.mapboxgl-canvas {
-		width: 6.25rem;
+		width: 100% !important;
 		height: 6.25rem;
 	}
 }
 @media screen and (max-width: 320px) {
 	#map {
-		width: 2.25rem !important;
+		width: 100% !important;
 		height: 2.25rem !important;
 	}
 	.mapboxgl-canvas {
-		width: 2.25rem !important;
+		width: 100% !important;
 		height: 2.25rem !important;
 	}
 }
