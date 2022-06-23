@@ -45,19 +45,21 @@ const popupGalup = new mapboxgl.Popup().setHTML(
 	`<h5 class="title text-center">Oficia Galup</h5>`
 );
 // Create a default Marker and add it to the map for Galup.
-const markerGalup = new mapboxgl.Marker()
+const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 	.setLngLat([-68.7378062, 10.3392072])
 	.setPopup(popupGalup)
 	.addTo(map);
 // Create a default Marker, colored black, rotated 45 degrees.
 map.on("click", function (e) {
 	///alert(e.lngLat);
-	console.log(e.lngLat.lng + ", " + e.lngLat.lat);
-	console.log(map);
-	const coordinates = e.lngLat.lng + ", " + e.lngLat.lat;
+	//console.log(e.lngLat.lng + ", " + e.lngLat.lat);
+	//console.log(map);
+	const coordinates = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+
 	console.log(coordinates);
 	console.log(JSON.stringify(e.lngLat));
-	const markerClient = new mapboxgl.Marker({ color: "orange", rotation: 45 })
+	const markerClient = new mapboxgl.Marker({ color: "green", rotation: 45 })
 		.setLngLat(coordinates)
 		.addTo(map);
+	console.log(markerClient);
 });
