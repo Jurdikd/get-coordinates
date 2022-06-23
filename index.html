@@ -23,45 +23,34 @@
 <body>
     <h1 class="h1">Obtener coordenadas con Mapbox</h1>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="latitud">Latitud</label>
-                    <input id="latitud" class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
-                        aria-label=".form-control-lg example">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="longitud">Longitud</label>
-                <input id="longitud" class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
-                    aria-label=".form-control-lg example">
-            </div>
 
-
-
-
-
-        </div>
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="card">
+                    <div class="card-header">
+                        <div class="form-group">
+                            <label for="coordendas">Coordendas</label>
+                            <input id="coordendas" class="form-control form-control-md" type="text" placeholder=""
+                                aria-label="coordendas" readonly>
+                        </div>
+                    </div>
                     <div id='map' class="card-body"></div>
-                    <div class="card-footer">
-                        <button class="btn btn-info btn-sm" id="fly">Buscar mi marca</button>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-info btn-md" id="fly">Buscar mi marca</button>
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
 
 
 
 
 
-        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-            </script>
-        <script src="js/main.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
