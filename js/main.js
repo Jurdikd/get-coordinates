@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	//fetchDataMap();
+	textCoordendas.disabled = true;
 });
 //`http://api.positionstack.com/v1/forward?access_key=${api_key}&query=40.7638435,-73.9729691`
 /*const api_key = "c59bc1d034f4e46966a6e79f32797f02";
@@ -51,7 +52,8 @@ map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.FullscreenControl());
 // Create a default Popup and add it to the marketGalup for Galup.
 const popupGalup = new mapboxgl.Popup().setHTML(
-	`<h5 class="title text-center">Oficia Galup</h5>`
+	`<h5 class="title text-center">Galup</h5>
+    <p>Oficinas De Galup</p>`
 );
 // Create a default Marker and add it to the map for Galup.
 const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
@@ -60,22 +62,25 @@ const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 	.addTo(map);
 //Create a market cliente
 const markerClient = new mapboxgl.Marker({ color: "green", rotation: 45 });
-
-map.on("click", function (e) {
+//boton de marca
+const textCoordendas = document.getElementById("coordendas");
+map.on("click", (e) => {
 	//Get coordinates
 	const coordinates = { lng: e.lngLat.lng, lat: e.lngLat.lat };
 	//Set coordinates to market
 	markerClient.setLngLat(coordinates);
 	//Render to map
 	markerClient.addTo(map);
+	textCoordendas.setAttribute("placeholder", markerClient._lngLat);
+	textCoordendas.disabled = false;
+	console.log(textCoordendas);
 });
 //Buscar marca
-console.log(markerClient);
 document.getElementById("fly").addEventListener("click", () => {
-	// Fly to a random location by offsetting the point -74.50, 40
-	// by up to 5 degrees.
+	// Busqueda de marca
 	map.flyTo({
 		center: markerClient._lngLat,
+		zoom: 18,
 		essential: true, // this animation is considered essential with respect to prefers-reduced-motion
 	});
 });
