@@ -1,3 +1,3 @@
 # get-coordinates
-Get coordinates with google maps
 
+Get coordinates with mapbox
