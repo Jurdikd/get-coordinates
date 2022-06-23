@@ -10,15 +10,18 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+        type="text/css">
 
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-    <h1 class="h1">Obtener coordenadas con google maps</h1>
+    <h1 class="h1">Obtener coordenadas con Mapbox</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -40,16 +43,15 @@
 
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div id='map' class="card-body"></div>
+                    <div class="card-footer">
+                        <button class="btn btn-info btn-sm" id="fly">Buscar mi marca</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="card">
-                    <div id='map2' class="card-body"></div>
-                </div>
-            </div>
+
         </div>
 
 
