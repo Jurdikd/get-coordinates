@@ -58,14 +58,24 @@ const markerGalup = new mapboxgl.Marker({ color: "orange", rotation: 45 })
 	.setLngLat([-68.7378062, 10.3392072])
 	.setPopup(popupGalup)
 	.addTo(map);
-function setMarker(coordinates) {
-	markerClient.setLngLat(coordinates);
-}
+//Create a market cliente
 const markerClient = new mapboxgl.Marker({ color: "green", rotation: 45 });
 
 map.on("click", function (e) {
 	//Get coordinates
 	const coordinates = { lng: e.lngLat.lng, lat: e.lngLat.lat };
+	//Set coordinates to market
 	markerClient.setLngLat(coordinates);
+	//Render to map
 	markerClient.addTo(map);
+});
+//Buscar marca
+console.log(markerClient);
+document.getElementById("fly").addEventListener("click", () => {
+	// Fly to a random location by offsetting the point -74.50, 40
+	// by up to 5 degrees.
+	map.flyTo({
+		center: markerClient._lngLat,
+		essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+	});
 });
