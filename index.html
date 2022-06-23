@@ -28,15 +28,21 @@
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-header">
+                        <div class=" card-tittle text-dark">
+                            Para colocar tu marca haz click encima del mapa
+                        </div>
                         <div class="form-group">
-                            <label for="coordendas">Coordendas</label>
+                            <label for="coordendas" class="text-success">Coordendas</label>
                             <input id="coordendas" class="form-control form-control-md" type="text" placeholder=""
                                 aria-label="coordendas" readonly>
                         </div>
                     </div>
                     <div id='map' class="card-body"></div>
                     <div class="card-footer text-center">
-                        <button class="btn btn-info btn-md" id="fly">Buscar mi marca</button>
+                        <div class="text-danger text-sm">
+                            Si no encuentras la marca que hiciste presiona el botón para buscarla
+                        </div>
+                        <button class="btn btn-success btn-md" id="fly">Buscar mi marca</button>
                     </div>
                 </div>
             </div>
