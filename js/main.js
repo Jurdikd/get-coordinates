@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-	//fetchDataMap();
-	textCoordendas.disabled = true;
-});
+document.addEventListener("DOMContentLoaded", () => {});
 //`http://api.positionstack.com/v1/forward?access_key=${api_key}&query=40.7638435,-73.9729691`
 /*const api_key = "c59bc1d034f4e46966a6e79f32797f02";
 const fetchDataMap = async () => {
